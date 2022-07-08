@@ -5,9 +5,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.*;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Entity;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -24,17 +30,18 @@ public class Laboratory {
     private Long id;
 
     @Column
-    private UUID cod_laboratory;
+    @Type(type = "uuid-char")
+    private UUID codLaboratory;
 
     @Column
     private String name;
 
     @Column
     @CreationTimestamp
-    private LocalDateTime created_at;
+    private LocalDateTime createdAt;
 
     @Column
     @UpdateTimestamp
-    private LocalDateTime updated_at;
+    private LocalDateTime updatedAt;
 
 }
