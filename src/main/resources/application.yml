@@ -1,0 +1,18 @@
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: UTF-16
+
+spring:
+  application:
+    name: "agrotis"
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: agrotis
+    password: agrotis%
+    url: jdbc:mysql://localhost:3306/agrotis
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL8Dialect

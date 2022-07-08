@@ -1,0 +1,4 @@
+CREATE DATABASE agrotis;
+CREATE USER 'agrotis'@'%' IDENTIFIED BY 'agrotis%';
+GRANT ALL PRIVILEGES ON *.* TO 'agrotis'@'%';
+FLUSH PRIVILEGES;
