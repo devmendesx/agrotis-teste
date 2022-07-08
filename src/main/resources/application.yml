@@ -16,3 +16,11 @@ spring:
     hibernate:
       ddl-auto: update
     database-platform: org.hibernate.dialect.MySQL8Dialect
+
+
+  management:
+    endpoint:
+      health:
+        show-details: always
+      web:
+        exposure: "*"

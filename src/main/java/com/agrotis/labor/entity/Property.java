@@ -5,7 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.validator.constraints.br.CNPJ;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -25,17 +27,22 @@ public class Property {
     private Long id;
 
     @Column
-    private UUID cod_property;
+    @Type(type = "uuid-char")
+    private UUID codProperty;
 
     @Column
     private String name;
 
+    @CNPJ
+    @Column
+    private String cnpj;
+
     @Column
     @CreationTimestamp
-    private LocalDateTime created_at;
+    private LocalDateTime createdAt;
 
     @Column
     @UpdateTimestamp
-    private LocalDateTime updated_at;
+    private LocalDateTime updatedAt;
 
 }

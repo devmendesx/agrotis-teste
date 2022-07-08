@@ -1,5 +1,6 @@
 package com.agrotis.labor.entity;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,40 +9,49 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "laboratory")
+@Table(name = "analysis")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Laboratory {
-
+public class Analysis {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
     @Type(type = "uuid-char")
-    private UUID codLaboratory;
+    private UUID codAnalysis;
 
     @Column
-    private String name;
+    private String analysisMakerName;
 
     @Column
+    private LocalDateTime initialDate;
+
+    @Column
+    private LocalDateTime finalDate;
+
+    @Column
+    private Long propertyId;
+
+    @Column
+    private Long laboratoryId;
+
+    @Column
+    private String notes;
+
     @CreationTimestamp
+    @Column
     private LocalDateTime createdAt;
 
-    @Column
     @UpdateTimestamp
+    @Column
     private LocalDateTime updatedAt;
 
 }
